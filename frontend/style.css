@@ -1,0 +1,503 @@
+:root {
+    --primary-bg: #0f0f18;
+    --secondary-bg: #1a1a2a;
+    --card-bg: #212130;
+    --accent: #836EF9;
+    --accent-hover: #9c89f9;
+    --text: #e0e0ff;
+    --text-secondary: #8c8ca5;
+    --border: #2d2d4d;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--primary-bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background: var(--secondary-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+}
+
+.wallet-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wallet-address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(131, 110, 249, 0.1);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.85rem;
+}
+
+.player-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(42, 42, 72, 0.3);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.stat-item span {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Game Container */
+#game-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+#rules {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#rules h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+#rules p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+#rules ul {
+    text-align: left;
+    margin: 0 auto 1.5rem auto;
+    padding-left: 1.2rem;
+    list-style: none;
+}
+
+#rules li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+#rules li:before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+}
+
+#startGame {
+    background: var(--accent);
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#startGame:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Game Area */
+#game-area {
+    display: none;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--secondary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+#timer {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+#finishGame {
+    background: rgba(255, 71, 87, 0.15);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#finishGame:hover {
+    background: rgba(255, 71, 87, 0.25);
+}
+
+#monadCanvas {
+    background: var(--primary-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: crosshair;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Leaderboard */
+#leaderboard {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+#leaderboard h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+#leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.2rem;
+}
+
+#leaderboard th {
+    background: var(--secondary-bg);
+    padding: 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+#leaderboard td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+#leaderboard tr:hover td {
+    background: rgba(131, 110, 249, 0.03);
+}
+
+.rank-cell {
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+}
+
+.address-link {
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.address-link:hover {
+    color: var(--accent);
+}
+
+.time-cell {
+    font-weight: 600;
+    color: var(--text);
+    text-align: right;
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+#pagination button {
+    background: var(--secondary-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+
+#pagination button:hover:not(:disabled) {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+#pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.2rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* Buttons */
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#disconnectWallet {
+    background: rgba(255, 71, 87, 0.15);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+#disconnectWallet:hover {
+    background: rgba(255, 71, 87, 0.25);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: var(--card-bg);
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.modal-content p {
+    margin-bottom: 1.2rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+#resultTime {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.tweet-button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #1DA1F2;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.tweet-button:hover {
+    background: #1a91da;
+}
+
+#continueButton {
+    background: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+#continueButton:hover {
+    background: var(--accent-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .wallet-info {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+    
+    .player-stats {
+        justify-content: center;
+    }
+    
+    #game-container, #leaderboard {
+        padding: 1.5rem;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+    }
+    
+    #monadCanvas {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" href="logo.png" rel="shortcut icon">
+    <title>Monad Coloring Challenge</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Monad Coloring Challenge</h1>
+            <div class="wallet-info">
+                <div id="playerStats" class="player-stats" style="display: none;">
+                    <div class="stat-item">
+                        <span>Rank:</span>
+                        <span id="playerRank">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Best:</span>
+                        <span id="playerBestTime">-</span>
+                    </div>
+                </div>
+                <div class="wallet-address">
+                    <button id="connectWallet">Connect Wallet</button>
+                    <span id="walletAddress"></span>
+                    <button id="disconnectWallet" style="display: none;">Disconnect</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="game-container">
+                <div id="rules">
+                    <h2>Rules</h2>
+                    <p>Fill the Monad logo completely as fast as you can!</p>
+                    <ul>
+                        <li>Hold left mouse button to paint</li>
+                        <li>Brush size: 50px</li>
+                        <li>Complete as fast as you can</li>
+                    </ul>
+                    <button id="startGame">Start Game</button>
+                </div>
+                
+                <div id="game-area" style="display: none;">
+                    <div class="game-controls">
+                        <div id="timer">Time: <span id="time">0</span>s</div>
+                        <button id="finishGame">Finish Game</button>
+                    </div>
+                    <canvas id="monadCanvas" width="1024" height="1024"></canvas>
+                </div>
+            </div>
+
+            <div id="leaderboard">
+                <h2>Leaderboard</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="20%">Rank</th>
+                            <th width="50%">Address</th>
+                            <th width="30%">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody"></tbody>
+                </table>
+                <div id="pagination"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ by <a href="https://twitter.com/nftshinessy" target="_blank" rel="noopener noreferrer">nftshinessy</a> for <a href="https://twitter.com/monad_xyz" target="_blank" rel="noopener noreferrer">Monad</a> community</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно результатов -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations! 🎉</h2>
+            <p>You completed the challenge in <span id="resultTime">0</span> seconds!</p>
+            <p>Your result has been saved to the leaderboard.</p>
+            <div class="modal-buttons">
+                <a id="tweetResult" class="tweet-button" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
+                    </svg>
+                    Share on Twitter
+                </a>
+                <button id="continueButton">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@4.2.0/dist/web3.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+    <script src="leaderboard.js"></script>
+</body>
+</html>
