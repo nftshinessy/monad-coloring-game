@@ -1,0 +1,22 @@
+{
+  "name": "monad-coloring-game-backend",
+  "version": "1.0.0",
+  "description": "Backend for Monad coloring game",
+  "author": "nftshinessy <shinessynft@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "init-db": "node init-db.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "web3": "^4.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
