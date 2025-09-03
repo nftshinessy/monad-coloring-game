@@ -1,6 +1,6 @@
 # Monad Coloring Game
 
-A fun and competitive coloring game built for the Monad blockchain community where players race against time to color the Monad logo.
+MonadHub is a community recognition platform that allows users to vote for notable contributors in the Monad ecosystem once per day.
 
 ## 🎮 Features
 
@@ -23,7 +23,7 @@ A fun and competitive coloring game built for the Monad blockchain community whe
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/monad-coloring-game.git
+git clone https://github.com/nftshinessyE/monad-coloring-game.git
 cd monad-coloring-game
 ```
 
@@ -106,3 +106,4 @@ monad-coloring-game/
  **```GET /api/leaderboard```** - Retrieve leaderboard data
 
  **```GET /api/player/stats```** - Get player statistics
+
