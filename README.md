@@ -23,7 +23,7 @@ MonadHub is a community recognition platform that allows users to vote for notab
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/nftshinessyE/monad-coloring-game.git
+git clone https://github.com/nftshinessy/monad-coloring-game.git
 cd monad-coloring-game
 ```
 
@@ -106,4 +106,5 @@ monad-coloring-game/
  **```GET /api/leaderboard```** - Retrieve leaderboard data
 
  **```GET /api/player/stats```** - Get player statistics
+
 
